@@ -128,6 +128,7 @@
     <div class="strip"><div class="container"><strong>Las Talitas · San Miguel de Tucumán · Alrededores</strong><span>Coordinamos el retiro y la devolución de tu documentación.</span></div></div>
     <section id="servicios"><div class="container"><div class="section-head"><span class="eyebrow">Una solución práctica</span><h2>Ordená hoy. Encontrá todo mañana.</h2><p>Un servicio pensado para pymes, comercios y profesionales que necesitan recuperar el control de sus documentos.</p></div><div class="cards"><article class="card"><div class="icon">▣</div><h3>Digitalización</h3><p>Escaneamos documentos en alta calidad para convertir tus papeles en archivos PDF claros y accesibles.</p></article><article class="card"><div class="icon">⌘</div><h3>Organización</h3><p>Clasificamos y nombramos cada archivo con una estructura lógica, adaptada a la forma en que trabajás.</p></article><article class="card"><div class="icon">↗</div><h3>Entrega digital</h3><p>Recibís tus documentos en carpetas ordenadas, listos para buscar, consultar y compartir de forma controlada.</p></article></div></div></section>
     <section id="proceso" class="process"><div class="container"><div class="section-head"><span class="eyebrow">Simple y acompañado</span><h2>Así ponemos en orden tus documentos</h2></div><div class="steps"><div class="step"><div class="step-num">1</div><h3>Nos contactás</h3><p>Contanos qué documentación tenés y qué necesitás resolver.</p></div><div class="step"><div class="step-num">2</div><h3>Coordinamos</h3><p>Definimos el retiro o la entrega de los archivos y te enviamos un presupuesto.</p></div><div class="step"><div class="step-num">3</div><h3>Digitalizamos</h3><p>Escaneamos, clasificamos y nombramos todo con criterio.</p></div><div class="step"><div class="step-num">4</div><h3>Te entregamos</h3><p>Recibís tu archivo digital organizado y los originales de vuelta.</p></div></div></div></section>
+    <section id="pago"><div class="container audience"><div><span class="eyebrow">Suscripción segura</span><h2>Pagá con Mercado Pago.</h2><p class="hero-text">Elegí tu plan y completá el pago en el sitio seguro de Mercado Pago. Tu suscripción y los datos de tu archivo se confirman luego de validar la operación.</p><p class="notice">No ingreses datos de tarjetas ni contraseñas en esta web.</p></div><div class="card" style="padding:32px"><h3 id="payment-title">Elegí un plan para suscribirte</h3><p id="payment-description">Seleccioná uno de los planes de arriba para continuar al pago seguro.</p><a id="mercadopago-button" class="button primary" href="#planes">Ver planes</a><p class="notice">El pago se procesa exclusivamente en Mercado Pago.</p></div></div></section>
     <section><div class="container audience"><div><span class="eyebrow">Para trabajar mejor</span><h2>Tu información, donde la necesitás.</h2><p class="hero-text">Dejá de perder tiempo buscando en cajas, archivadores o pilas de papeles. Llevamos orden a la documentación que hace funcionar tu actividad.</p><a class="button primary js-whatsapp" href="#">Quiero organizar mis archivos</a></div><ul class="check-list"><li>Facturas, recibos y comprobantes</li><li>Documentación de proveedores</li><li>Contratos y presupuestos</li><li>Remitos y archivos administrativos</li><li>Carpetas históricas de tu negocio</li></ul></div></section>
     <section id="seguridad"><div class="container security"><span class="eyebrow">Compromiso con tu información</span><h2>Tu documentación se trata con cuidado.</h2><p>Trabajamos con retiro y entrega coordinados, organización por cliente y accesos controlados. Antes de comenzar, definimos el alcance y el plazo de conservación de las copias de trabajo.</p><div class="security-grid"><div><b>Confidencialidad</b>Tu información se utiliza solo para el servicio acordado.</div><div><b>Acceso controlado</b>Las entregas digitales se preparan para el cliente autorizado.</div><div><b>Proceso claro</b>Sabés qué entregás, qué recibís y cuándo.</div></div></div></section>
     <section id="clientes" class="cta"><div class="container"><span class="eyebrow">Área de clientes</span><h2>Solicitá acceso a tu archivo digital.</h2><p>Completá tus datos. Verificaremos la solicitud antes de habilitar el acceso privado a la carpeta de tu empresa.</p><form id="client-registration" class="client-form"><div class="form-grid"><div class="field"><label for="fullName">Nombre y apellido *</label><input id="fullName" name="fullName" autocomplete="name" required></div><div class="field"><label for="business">Empresa o emprendimiento *</label><input id="business" name="business" autocomplete="organization" required></div><div class="field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="phone">Teléfono / WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="requestType">¿Qué necesitás?</label><select id="requestType" name="requestType"><option value="Solicitar acceso a mi archivo digital">Ya soy cliente y solicito acceso</option><option value="Consultar por digitalización de documentos">Quiero digitalizar documentos</option></select></div><div class="field full"><label for="message">Contanos brevemente tu consulta</label><textarea id="message" name="message" placeholder="Ej.: Necesito acceder a la documentación de mi empresa."></textarea></div></div><label class="consent"><input type="checkbox" required> <span>Autorizo a Ordena Digital a utilizar estos datos únicamente para responder mi solicitud y gestionar el acceso solicitado.</span></label><button class="button" type="submit">Enviar solicitud</button></form><p class="notice" style="color:#afc4d1">No envíes documentos ni contraseñas por este formulario. La habilitación se realiza luego de validar tus datos.</p></div></section>
@@ -138,6 +139,35 @@
     const whatsappNumber = "5493813326626";
     const whatsappMessage = "Hola, quiero consultar por el servicio de digitalización de documentos de Ordena Digital.";
     const registrationEndpoint = 'https://script.google.com/macros/s/AKfycbxZfrpG-ETznOYH7OmLHq6DVJ8NEG0UBxUgrXN6jv2DvYhtAaCPcQwnENwmodg7Lvag/exec';
+    const mercadoPagoLinks = {
+      mensual: '',
+      anual: ''
+    };
+    const planDetails = {
+      mensual: { title: 'Plan mensual · $60.000 por mes', description: 'Vas a ser redirigido a Mercado Pago para autorizar el cobro mensual automático.', label: 'Continuar a Mercado Pago' },
+      anual: { title: 'Plan anual · $612.000 por año', description: 'Vas a ser redirigido a Mercado Pago para abonar el año completo con descuento.', label: 'Pagar plan anual con Mercado Pago' }
+    };
+    document.querySelectorAll('.js-payment').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const plan = link.dataset.plan;
+        const detail = planDetails[plan];
+        document.getElementById('payment-title').textContent = detail.title;
+        document.getElementById('payment-description').textContent = detail.description;
+        const paymentButton = document.getElementById('mercadopago-button');
+        paymentButton.textContent = detail.label;
+        paymentButton.href = mercadoPagoLinks[plan] || '#planes';
+        paymentButton.dataset.plan = plan;
+        document.getElementById('pago').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    document.getElementById('mercadopago-button').addEventListener('click', event => {
+      const plan = event.currentTarget.dataset.plan;
+      if (plan && !mercadoPagoLinks[plan]) {
+        event.preventDefault();
+        alert('Estamos preparando el enlace de pago para este plan. Escribinos por WhatsApp y te ayudamos a completar la suscripción.');
+      }
+    });
     document.addEventListener('submit', async event => {
       if (event.target.id !== 'client-registration') return;
       event.preventDefault();
