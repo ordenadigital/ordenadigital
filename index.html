@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ordena Digital: digitalización y organización de documentos para negocios y profesionales en Tucumán.">
   <title>Ordena Digital | Tus documentos, siempre a mano</title>
-  <link rel="icon" type="image/png" href="assets/logo-ordena-digital.png">
   <style>
     :root { --navy:#0d2947; --navy-2:#153b61; --sage:#93a894; --mint:#eaf0e9; --ink:#122335; --paper:#fbfcfa; --line:#dce5dd; --white:#fff; }
     * { box-sizing:border-box; }
@@ -59,6 +58,21 @@
     .icon { display:grid; place-items:center; width:46px; height:46px; margin-bottom:18px; border-radius:13px; background:var(--mint); color:var(--navy); font-size:1.35rem; }
     h3 { margin-bottom:8px; color:var(--navy); font-size:1.15rem; }
     .card p { margin:0; color:#657384; font-size:.92rem; }
+    .plans { background:linear-gradient(180deg,#f5f8f4 0%,#fff 100%); }
+    .plan-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; max-width:890px; margin:auto; }
+    .plan { position:relative; padding:32px; border:1px solid var(--line); border-radius:22px; background:#fff; box-shadow:0 15px 35px rgba(21,59,97,.06); }
+    .plan.featured { border:2px solid var(--navy); box-shadow:0 18px 40px rgba(13,41,71,.14); }
+    .plan-badge { position:absolute; top:-14px; right:23px; padding:6px 11px; border-radius:999px; background:var(--sage); color:#153b32; font-size:.72rem; font-weight:850; text-transform:uppercase; letter-spacing:.06em; }
+    .plan h3 { margin:0 0 7px; font-size:1.38rem; }
+    .plan-desc { min-height:48px; margin:0; color:#607182; }
+    .price { display:flex; align-items:baseline; gap:7px; margin:25px 0 3px; color:var(--navy); }
+    .price strong { font-size:2.5rem; letter-spacing:-.055em; line-height:1; }
+    .price span { font-size:.93rem; font-weight:700; color:#617181; }
+    .price-note { margin:0 0 20px; color:#69806d; font-size:.82rem; font-weight:700; }
+    .plan ul { display:grid; gap:10px; min-height:135px; margin:0 0 25px; padding:0; list-style:none; color:#536474; font-size:.91rem; }
+    .plan li:before { content:"✓"; margin-right:9px; color:#66836a; font-weight:900; }
+    .plan .button { width:100%; }
+    .plans-footnote { max-width:890px; margin:22px auto 0; color:#647383; text-align:center; font-size:.81rem; }
     .process { background:var(--mint); }
     .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
     .step { position:relative; padding:18px 16px; }
@@ -98,15 +112,15 @@
     .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:18px; font-size:.83rem; }
     .footer-brand { color:white; font-weight:800; letter-spacing:.05em; }
     .notice { margin-top:11px; color:#8799a7; font-size:.73rem; }
-    @media (max-width:800px) { .nav-links { display:none; } .hero { padding:58px 0; } .hero-grid,.audience { grid-template-columns:1fr; gap:42px; } .hero-card { transform:none; } .cards { grid-template-columns:1fr; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(2):after { display:none; } .strip .container { display:block; } .strip span { display:block; margin-top:3px; } .security-grid { grid-template-columns:1fr; } section { padding:68px 0; } }
-    @media (max-width:450px) { .container { width:min(100% - 30px,1120px); } h1 { font-size:2.45rem; } .steps { grid-template-columns:1fr; } .step:after { display:none; } .footer-inner { align-items:flex-start; flex-direction:column; } .button { width:100%; } .hero-actions { display:grid; } .form-grid { grid-template-columns:1fr; } }
+    @media (max-width:800px) { .nav-links { display:none; } .hero { padding:58px 0; } .hero-grid,.audience { grid-template-columns:1fr; gap:42px; } .hero-card { transform:none; } .cards,.plan-grid { grid-template-columns:1fr; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(2):after { display:none; } .strip .container { display:block; } .strip span { display:block; margin-top:3px; } .security-grid { grid-template-columns:1fr; } section { padding:68px 0; } }
+    @media (max-width:450px) { .container { width:min(100% - 30px,1120px); } h1 { font-size:2.45rem; } .steps { grid-template-columns:1fr; } .step:after { display:none; } .footer-inner { align-items:flex-start; flex-direction:column; } .button { width:100%; } .hero-actions { display:grid; } .form-grid { grid-template-columns:1fr; } .plan { padding:26px 20px; } }
   </style>
 </head>
 <body>
   <header>
     <nav class="nav container" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="Ordena Digital, inicio"><img src="assets/logo-ordena-digital.png" alt="Logo de Ordena Digital"><span>ORDENA<small>DIGITAL</small></span></a>
-      <div class="nav-links"><a href="#servicios">Servicios</a><a href="#proceso">Cómo funciona</a><a href="#seguridad">Seguridad</a><a href="#clientes" class="button primary">Clientes</a></div>
+      <div class="nav-links"><a href="#servicios">Servicios</a><a href="#proceso">Cómo funciona</a><a href="#seguridad">Seguridad</a><a href="#planes" class="button secondary">Planes y precios</a><a href="#clientes" class="button primary">Clientes</a></div>
     </nav>
   </header>
   <main>
@@ -128,7 +142,7 @@
     <div class="strip"><div class="container"><strong>Las Talitas · San Miguel de Tucumán · Alrededores</strong><span>Coordinamos el retiro y la devolución de tu documentación.</span></div></div>
     <section id="servicios"><div class="container"><div class="section-head"><span class="eyebrow">Una solución práctica</span><h2>Ordená hoy. Encontrá todo mañana.</h2><p>Un servicio pensado para pymes, comercios y profesionales que necesitan recuperar el control de sus documentos.</p></div><div class="cards"><article class="card"><div class="icon">▣</div><h3>Digitalización</h3><p>Escaneamos documentos en alta calidad para convertir tus papeles en archivos PDF claros y accesibles.</p></article><article class="card"><div class="icon">⌘</div><h3>Organización</h3><p>Clasificamos y nombramos cada archivo con una estructura lógica, adaptada a la forma en que trabajás.</p></article><article class="card"><div class="icon">↗</div><h3>Entrega digital</h3><p>Recibís tus documentos en carpetas ordenadas, listos para buscar, consultar y compartir de forma controlada.</p></article></div></div></section>
     <section id="proceso" class="process"><div class="container"><div class="section-head"><span class="eyebrow">Simple y acompañado</span><h2>Así ponemos en orden tus documentos</h2></div><div class="steps"><div class="step"><div class="step-num">1</div><h3>Nos contactás</h3><p>Contanos qué documentación tenés y qué necesitás resolver.</p></div><div class="step"><div class="step-num">2</div><h3>Coordinamos</h3><p>Definimos el retiro o la entrega de los archivos y te enviamos un presupuesto.</p></div><div class="step"><div class="step-num">3</div><h3>Digitalizamos</h3><p>Escaneamos, clasificamos y nombramos todo con criterio.</p></div><div class="step"><div class="step-num">4</div><h3>Te entregamos</h3><p>Recibís tu archivo digital organizado y los originales de vuelta.</p></div></div></div></section>
-    <section id="pago"><div class="container audience"><div><span class="eyebrow">Suscripción segura</span><h2>Pagá con Mercado Pago.</h2><p class="hero-text">Elegí tu plan y completá el pago en el sitio seguro de Mercado Pago. Tu suscripción y los datos de tu archivo se confirman luego de validar la operación.</p><p class="notice">No ingreses datos de tarjetas ni contraseñas en esta web.</p></div><div class="card" style="padding:32px"><h3 id="payment-title">Elegí un plan para suscribirte</h3><p id="payment-description">Seleccioná uno de los planes de arriba para continuar al pago seguro.</p><a id="mercadopago-button" class="button primary" href="#planes">Ver planes</a><p class="notice">El pago se procesa exclusivamente en Mercado Pago.</p></div></div></section>
+    <section id="planes" class="plans"><div class="container"><div class="section-head"><span class="eyebrow">Planes de gestión</span><h2>Tu archivo digital, siempre acompañado.</h2><p>Elegí cómo querés abonar la gestión mensual de tus documentos. La digitalización inicial se cotiza por separado según el volumen de archivos.</p></div><div class="plan-grid"><article class="plan"><h3>Plan mensual</h3><p class="plan-desc">Para mantener tus documentos ordenados y accesibles cada mes.</p><div class="price"><strong>$60.000</strong><span>/ mes</span></div><p class="price-note">Cobro mensual automático</p><ul><li>Carpeta privada con acceso controlado</li><li>Hasta 2 usuarios autorizados</li><li>Organización y soporte mensual</li><li>Hasta 300 páginas nuevas por mes</li><li>Digitalización inicial cotizada aparte</li></ul><a class="button primary js-payment" data-plan="mensual" href="#">Suscribirme mensualmente</a></article><article class="plan featured"><span class="plan-badge">Mejor valor</span><h3>Plan anual</h3><p class="plan-desc">La misma gestión, con un ahorro por pago anticipado.</p><div class="price"><strong>$612.000</strong><span>/ año</span></div><p class="price-note">Ahorrás $108.000 al año</p><ul><li>Todo lo incluido en el plan mensual</li><li>Pago anual anticipado</li><li>Descuento equivalente al 15%</li><li>Prioridad para coordinación y soporte</li><li>Digitalización inicial cotizada aparte</li></ul><a class="button primary js-payment" data-plan="anual" href="#">Elegir plan anual</a></article></div><p class="plans-footnote">El pago se procesa exclusivamente en Mercado Pago. No ingreses datos de tarjetas ni contraseñas en esta web. Documentos con clasificación especial, gran volumen o páginas adicionales se presupuestan antes de comenzar.</p></div></section>
     <section><div class="container audience"><div><span class="eyebrow">Para trabajar mejor</span><h2>Tu información, donde la necesitás.</h2><p class="hero-text">Dejá de perder tiempo buscando en cajas, archivadores o pilas de papeles. Llevamos orden a la documentación que hace funcionar tu actividad.</p><a class="button primary js-whatsapp" href="#">Quiero organizar mis archivos</a></div><ul class="check-list"><li>Facturas, recibos y comprobantes</li><li>Documentación de proveedores</li><li>Contratos y presupuestos</li><li>Remitos y archivos administrativos</li><li>Carpetas históricas de tu negocio</li></ul></div></section>
     <section id="seguridad"><div class="container security"><span class="eyebrow">Compromiso con tu información</span><h2>Tu documentación se trata con cuidado.</h2><p>Trabajamos con retiro y entrega coordinados, organización por cliente y accesos controlados. Antes de comenzar, definimos el alcance y el plazo de conservación de las copias de trabajo.</p><div class="security-grid"><div><b>Confidencialidad</b>Tu información se utiliza solo para el servicio acordado.</div><div><b>Acceso controlado</b>Las entregas digitales se preparan para el cliente autorizado.</div><div><b>Proceso claro</b>Sabés qué entregás, qué recibís y cuándo.</div></div></div></section>
     <section id="clientes" class="cta"><div class="container"><span class="eyebrow">Área de clientes</span><h2>Solicitá acceso a tu archivo digital.</h2><p>Completá tus datos. Verificaremos la solicitud antes de habilitar el acceso privado a la carpeta de tu empresa.</p><form id="client-registration" class="client-form"><div class="form-grid"><div class="field"><label for="fullName">Nombre y apellido *</label><input id="fullName" name="fullName" autocomplete="name" required></div><div class="field"><label for="business">Empresa o emprendimiento *</label><input id="business" name="business" autocomplete="organization" required></div><div class="field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="phone">Teléfono / WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="requestType">¿Qué necesitás?</label><select id="requestType" name="requestType"><option value="Solicitar acceso a mi archivo digital">Ya soy cliente y solicito acceso</option><option value="Consultar por digitalización de documentos">Quiero digitalizar documentos</option></select></div><div class="field full"><label for="message">Contanos brevemente tu consulta</label><textarea id="message" name="message" placeholder="Ej.: Necesito acceder a la documentación de mi empresa."></textarea></div></div><label class="consent"><input type="checkbox" required> <span>Autorizo a Ordena Digital a utilizar estos datos únicamente para responder mi solicitud y gestionar el acceso solicitado.</span></label><button class="button" type="submit">Enviar solicitud</button></form><p class="notice" style="color:#afc4d1">No envíes documentos ni contraseñas por este formulario. La habilitación se realiza luego de validar tus datos.</p></div></section>
@@ -139,34 +153,23 @@
     const whatsappNumber = "5493813326626";
     const whatsappMessage = "Hola, quiero consultar por el servicio de digitalización de documentos de Ordena Digital.";
     const registrationEndpoint = 'https://script.google.com/macros/s/AKfycbxZfrpG-ETznOYH7OmLHq6DVJ8NEG0UBxUgrXN6jv2DvYhtAaCPcQwnENwmodg7Lvag/exec';
+    // Pegá aquí los links que Mercado Pago genera en tu cuenta para cada suscripción.
+    // Hasta reemplazarlos, los botones solo muestran la información del plan elegido.
     const mercadoPagoLinks = {
       mensual: '',
       anual: ''
     };
-    const planDetails = {
-      mensual: { title: 'Plan mensual · $60.000 por mes', description: 'Vas a ser redirigido a Mercado Pago para autorizar el cobro mensual automático.', label: 'Continuar a Mercado Pago' },
-      anual: { title: 'Plan anual · $612.000 por año', description: 'Vas a ser redirigido a Mercado Pago para abonar el año completo con descuento.', label: 'Pagar plan anual con Mercado Pago' }
-    };
     document.querySelectorAll('.js-payment').forEach(link => {
       link.addEventListener('click', event => {
-        event.preventDefault();
         const plan = link.dataset.plan;
-        const detail = planDetails[plan];
-        document.getElementById('payment-title').textContent = detail.title;
-        document.getElementById('payment-description').textContent = detail.description;
-        const paymentButton = document.getElementById('mercadopago-button');
-        paymentButton.textContent = detail.label;
-        paymentButton.href = mercadoPagoLinks[plan] || '#planes';
-        paymentButton.dataset.plan = plan;
-        document.getElementById('pago').scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-    document.getElementById('mercadopago-button').addEventListener('click', event => {
-      const plan = event.currentTarget.dataset.plan;
-      if (plan && !mercadoPagoLinks[plan]) {
+        if (!mercadoPagoLinks[plan]) {
+          event.preventDefault();
+          alert('Estamos preparando el enlace de pago para este plan. Escribinos por WhatsApp y te ayudamos a completar la suscripción.');
+          return;
+        }
         event.preventDefault();
-        alert('Estamos preparando el enlace de pago para este plan. Escribinos por WhatsApp y te ayudamos a completar la suscripción.');
-      }
+        window.open(mercadoPagoLinks[plan], '_blank', 'noopener');
+      });
     });
     document.addEventListener('submit', async event => {
       if (event.target.id !== 'client-registration') return;
