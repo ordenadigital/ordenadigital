@@ -1,0 +1,11 @@
+ORDENA DIGITAL — WEB
+
+1. Abrí index.html en cualquier navegador para ver la página.
+2. Antes de publicarla, abrí index.html con un editor de texto y buscá:
+   const whatsappNumber = "5493810000000";
+   Reemplazá ese número de ejemplo por tu WhatsApp Business, sin el signo +, espacios ni guiones.
+   Ejemplo: 5493811234567
+3. La carpeta assets contiene el logo. No la elimines ni la renombres.
+
+La web está preparada para ofrecer digitalización y organización documental en Las Talitas,
+San Miguel de Tucumán y alrededores.

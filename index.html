@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ordena Digital: digitalización y organización de documentos para negocios y profesionales en Tucumán.">
+  <title>Ordena Digital | Tus documentos, siempre a mano</title>
+  <style>
+    :root { --navy:#0d2947; --navy-2:#153b61; --sage:#93a894; --mint:#eaf0e9; --ink:#122335; --paper:#fbfcfa; --line:#dce5dd; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    header { position:sticky; top:0; z-index:10; background:rgba(251,252,250,.92); backdrop-filter:blur(16px); border-bottom:1px solid rgba(13,41,71,.08); }
+    .nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:.04em; color:var(--navy); }
+    .brand img { width:44px; height:44px; border-radius:50%; object-fit:cover; object-position:center; }
+    .brand span small { display:block; margin-top:-4px; color:var(--sage); font-size:.62rem; letter-spacing:.27em; }
+    .nav-links { display:flex; align-items:center; gap:25px; font-size:.92rem; font-weight:600; color:#425568; }
+    .nav-links a:hover { color:var(--navy); }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; border:0; border-radius:999px; padding:13px 21px; font-weight:750; font-size:.94rem; cursor:pointer; transition:.2s transform,.2s background; }
+    .button:hover { transform:translateY(-2px); }
+    .primary { background:var(--navy); color:white; box-shadow:0 10px 22px rgba(13,41,71,.18); }
+    .primary:hover { background:var(--navy-2); }
+    .light { background:white; color:var(--navy); border:1px solid rgba(255,255,255,.6); }
+    .hero { overflow:hidden; position:relative; padding:80px 0 70px; background:linear-gradient(126deg,#f3f7f2 0%,#eef4ef 55%,#dbe8dc 100%); }
+    .hero:before { content:""; position:absolute; right:-140px; top:-190px; width:600px; height:600px; border:80px solid rgba(147,168,148,.18); border-radius:50%; }
+    .hero-grid { position:relative; display:grid; grid-template-columns:1.08fr .92fr; align-items:center; gap:55px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; color:#58705c; font-weight:750; font-size:.78rem; text-transform:uppercase; letter-spacing:.12em; }
+    .eyebrow:before { content:""; width:26px; height:2px; background:var(--sage); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin:14px 0 20px; max-width:670px; color:var(--navy); font-size:clamp(2.5rem,5vw,4.5rem); line-height:1.02; letter-spacing:-.055em; }
+    h1 em { color:#66836a; font-style:normal; }
+    .hero-text { max-width:560px; font-size:1.1rem; color:#4d6070; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin:29px 0 31px; }
+    .secondary { background:transparent; color:var(--navy); border:1px solid #afc0b1; }
+    .trust { display:flex; flex-wrap:wrap; gap:18px; color:#4a6250; font-size:.86rem; font-weight:650; }
+    .trust span:before { content:"✓"; display:inline-grid; place-items:center; width:18px; height:18px; margin-right:7px; border-radius:50%; background:#c9dbcb; color:#416446; font-size:.72rem; }
+    .hero-card { position:relative; margin:auto; width:min(100%,400px); padding:24px; border-radius:29px; background:white; box-shadow:0 25px 60px rgba(18,49,39,.14); transform:rotate(2.5deg); }
+    .hero-card:after { content:""; position:absolute; z-index:-1; inset:13px -13px -13px 13px; border-radius:29px; background:var(--sage); opacity:.3; }
+    .logo-disc { display:block; width:160px; height:160px; margin:4px auto 15px; border-radius:50%; object-fit:cover; }
+    .file-stack { padding:14px; border-radius:15px; background:var(--mint); }
+    .file-line { display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid #d5e0d5; font-size:.82rem; font-weight:650; color:#46614c; }
+    .file-line:last-child { border:0; }
+    .tag { padding:3px 8px; border-radius:99px; background:#fff; color:#67836d; font-size:.68rem; }
+    .strip { background:var(--navy); color:#eff5ef; }
+    .strip .container { padding:18px 0; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .strip strong { font-size:1.02rem; }
+    .strip span { color:#b8c9bb; font-size:.9rem; }
+    section { padding:92px 0; }
+    .section-head { max-width:650px; margin-bottom:42px; }
+    h2 { margin:9px 0 13px; color:var(--navy); font-size:clamp(2rem,3.5vw,3rem); line-height:1.09; letter-spacing:-.04em; }
+    .section-head p { color:#637283; font-size:1.05rem; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { padding:27px; border:1px solid var(--line); border-radius:18px; background:white; transition:.2s transform,.2s box-shadow; }
+    .card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(22,42,45,.07); }
+    .icon { display:grid; place-items:center; width:46px; height:46px; margin-bottom:18px; border-radius:13px; background:var(--mint); color:var(--navy); font-size:1.35rem; }
+    h3 { margin-bottom:8px; color:var(--navy); font-size:1.15rem; }
+    .card p { margin:0; color:#657384; font-size:.92rem; }
+    .process { background:var(--mint); }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
+    .step { position:relative; padding:18px 16px; }
+    .step:not(:last-child):after { content:""; position:absolute; right:-8px; top:43px; width:16px; height:1px; background:#aabdaa; }
+    .step-num { display:grid; place-items:center; width:46px; height:46px; margin-bottom:16px; background:var(--navy); color:white; border-radius:50%; font-weight:800; }
+    .step h3 { font-size:1rem; }
+    .step p { margin:0; color:#5e7061; font-size:.9rem; }
+    .audience { display:grid; grid-template-columns:.85fr 1.15fr; align-items:center; gap:70px; }
+    .check-list { display:grid; gap:13px; padding:0; list-style:none; }
+    .check-list li { padding:14px 16px; border-radius:12px; background:white; border:1px solid var(--line); color:#425568; font-weight:600; }
+    .check-list li:before { content:"✓"; margin-right:11px; color:#66836a; font-weight:900; }
+    .security { padding:28px; background:var(--navy); color:white; border-radius:24px; }
+    .security .eyebrow { color:#b6cbb7; }
+    .security h2 { color:white; }
+    .security p { color:#c7d4dc; }
+    .security-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:24px; }
+    .security-grid div { padding:16px; border-radius:13px; background:rgba(255,255,255,.09); font-size:.88rem; font-weight:650; }
+    .security-grid b { display:block; margin-bottom:4px; color:#bcd2bd; }
+    .cta { padding:80px 0; background:linear-gradient(135deg,var(--navy),#174268); color:white; text-align:center; }
+    .cta h2 { max-width:680px; margin:0 auto 15px; color:white; }
+    .cta p { max-width:570px; margin:0 auto 27px; color:#c5d3dc; }
+    .client-form { max-width:720px; margin:34px auto 0; padding:25px; border:1px solid rgba(255,255,255,.2); border-radius:20px; background:rgba(255,255,255,.09); text-align:left; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }.field { display:grid; gap:6px; }.field.full { grid-column:1 / -1; }
+    .field label { color:#e7f0e9; font-size:.82rem; font-weight:700; }.field input,.field select,.field textarea { width:100%; padding:12px 13px; border:1px solid rgba(255,255,255,.2); border-radius:10px; background:#fff; color:var(--ink); font:inherit; }
+    .field textarea { min-height:84px; resize:vertical; }.consent { display:flex; gap:8px; margin:17px 0; color:#d2e0d8; font-size:.78rem; }.client-form .button { background:#fff; color:var(--navy); }.honeypot { position:absolute; left:-10000px; }
+    .client-form { max-width:720px; margin:34px auto 0; padding:25px; border:1px solid rgba(255,255,255,.2); border-radius:20px; background:rgba(255,255,255,.09); text-align:left; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .field { display:grid; gap:6px; }
+    .field.full { grid-column:1 / -1; }
+    .field label { color:#e7f0e9; font-size:.82rem; font-weight:700; }
+    .field input,.field select,.field textarea { width:100%; padding:12px 13px; border:1px solid rgba(255,255,255,.2); border-radius:10px; background:#fff; color:var(--ink); font:inherit; }
+    .field textarea { min-height:84px; resize:vertical; }
+    .consent { display:flex; align-items:flex-start; gap:8px; margin:17px 0; color:#d2e0d8; font-size:.78rem; }
+    .consent input { margin-top:4px; }
+    .client-form .button { background:#fff; color:var(--navy); }
+    footer { padding:32px 0; background:#091e34; color:#b9c7d0; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:18px; font-size:.83rem; }
+    .footer-brand { color:white; font-weight:800; letter-spacing:.05em; }
+    .notice { margin-top:11px; color:#8799a7; font-size:.73rem; }
+    @media (max-width:800px) { .nav-links { display:none; } .hero { padding:58px 0; } .hero-grid,.audience { grid-template-columns:1fr; gap:42px; } .hero-card { transform:none; } .cards { grid-template-columns:1fr; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(2):after { display:none; } .strip .container { display:block; } .strip span { display:block; margin-top:3px; } .security-grid { grid-template-columns:1fr; } section { padding:68px 0; } }
+    @media (max-width:450px) { .container { width:min(100% - 30px,1120px); } h1 { font-size:2.45rem; } .steps { grid-template-columns:1fr; } .step:after { display:none; } .footer-inner { align-items:flex-start; flex-direction:column; } .button { width:100%; } .hero-actions { display:grid; } .form-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Ordena Digital, inicio"><img src="assets/logo-ordena-digital.png" alt="Logo de Ordena Digital"><span>ORDENA<small>DIGITAL</small></span></a>
+      <div class="nav-links"><a href="#servicios">Servicios</a><a href="#proceso">Cómo funciona</a><a href="#seguridad">Seguridad</a><a href="#clientes" class="button primary">Clientes</a></div>
+    </nav>
+  </header>
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Digitalización documental en Tucumán</span>
+          <h1>Menos papeles.<br><em>Más tiempo</em> para tu negocio.</h1>
+          <p class="hero-text">Transformamos tus archivos físicos en documentos digitales organizados, fáciles de encontrar y listos para usar cuando los necesitás.</p>
+          <div class="hero-actions"><a class="button primary js-whatsapp" href="#">Consultar por WhatsApp <span>↗</span></a><a class="button secondary" href="#proceso">Conocé el proceso</a></div>
+          <div class="trust"><span>Retiro coordinado</span><span>Archivos ordenados</span><span>Atención personalizada</span></div>
+        </div>
+        <div class="hero-card" aria-label="Ejemplo de archivos ordenados digitalmente">
+          <img class="logo-disc" src="assets/logo-ordena-digital.png" alt="Ordena Digital">
+          <div class="file-stack"><div class="file-line"><span>Facturas · Enero 2026</span><span class="tag">PDF</span></div><div class="file-line"><span>Contratos vigentes</span><span class="tag">PDF</span></div><div class="file-line"><span>Proveedores</span><span class="tag">PDF</span></div></div>
+        </div>
+      </div>
+    </section>
+    <div class="strip"><div class="container"><strong>Las Talitas · San Miguel de Tucumán · Alrededores</strong><span>Coordinamos el retiro y la devolución de tu documentación.</span></div></div>
+    <section id="servicios"><div class="container"><div class="section-head"><span class="eyebrow">Una solución práctica</span><h2>Ordená hoy. Encontrá todo mañana.</h2><p>Un servicio pensado para pymes, comercios y profesionales que necesitan recuperar el control de sus documentos.</p></div><div class="cards"><article class="card"><div class="icon">▣</div><h3>Digitalización</h3><p>Escaneamos documentos en alta calidad para convertir tus papeles en archivos PDF claros y accesibles.</p></article><article class="card"><div class="icon">⌘</div><h3>Organización</h3><p>Clasificamos y nombramos cada archivo con una estructura lógica, adaptada a la forma en que trabajás.</p></article><article class="card"><div class="icon">↗</div><h3>Entrega digital</h3><p>Recibís tus documentos en carpetas ordenadas, listos para buscar, consultar y compartir de forma controlada.</p></article></div></div></section>
+    <section id="proceso" class="process"><div class="container"><div class="section-head"><span class="eyebrow">Simple y acompañado</span><h2>Así ponemos en orden tus documentos</h2></div><div class="steps"><div class="step"><div class="step-num">1</div><h3>Nos contactás</h3><p>Contanos qué documentación tenés y qué necesitás resolver.</p></div><div class="step"><div class="step-num">2</div><h3>Coordinamos</h3><p>Definimos el retiro o la entrega de los archivos y te enviamos un presupuesto.</p></div><div class="step"><div class="step-num">3</div><h3>Digitalizamos</h3><p>Escaneamos, clasificamos y nombramos todo con criterio.</p></div><div class="step"><div class="step-num">4</div><h3>Te entregamos</h3><p>Recibís tu archivo digital organizado y los originales de vuelta.</p></div></div></div></section>
+    <section><div class="container audience"><div><span class="eyebrow">Para trabajar mejor</span><h2>Tu información, donde la necesitás.</h2><p class="hero-text">Dejá de perder tiempo buscando en cajas, archivadores o pilas de papeles. Llevamos orden a la documentación que hace funcionar tu actividad.</p><a class="button primary js-whatsapp" href="#">Quiero organizar mis archivos</a></div><ul class="check-list"><li>Facturas, recibos y comprobantes</li><li>Documentación de proveedores</li><li>Contratos y presupuestos</li><li>Remitos y archivos administrativos</li><li>Carpetas históricas de tu negocio</li></ul></div></section>
+    <section id="seguridad"><div class="container security"><span class="eyebrow">Compromiso con tu información</span><h2>Tu documentación se trata con cuidado.</h2><p>Trabajamos con retiro y entrega coordinados, organización por cliente y accesos controlados. Antes de comenzar, definimos el alcance y el plazo de conservación de las copias de trabajo.</p><div class="security-grid"><div><b>Confidencialidad</b>Tu información se utiliza solo para el servicio acordado.</div><div><b>Acceso controlado</b>Las entregas digitales se preparan para el cliente autorizado.</div><div><b>Proceso claro</b>Sabés qué entregás, qué recibís y cuándo.</div></div></div></section>
+    <section id="clientes" class="cta"><div class="container"><span class="eyebrow">Área de clientes</span><h2>Solicitá acceso a tu archivo digital.</h2><p>Completá tus datos. Verificaremos la solicitud antes de habilitar el acceso privado a la carpeta de tu empresa.</p><form id="client-registration" class="client-form"><div class="form-grid"><div class="field"><label for="fullName">Nombre y apellido *</label><input id="fullName" name="fullName" autocomplete="name" required></div><div class="field"><label for="business">Empresa o emprendimiento *</label><input id="business" name="business" autocomplete="organization" required></div><div class="field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="phone">Teléfono / WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="requestType">¿Qué necesitás?</label><select id="requestType" name="requestType"><option value="Solicitar acceso a mi archivo digital">Ya soy cliente y solicito acceso</option><option value="Consultar por digitalización de documentos">Quiero digitalizar documentos</option></select></div><div class="field full"><label for="message">Contanos brevemente tu consulta</label><textarea id="message" name="message" placeholder="Ej.: Necesito acceder a la documentación de mi empresa."></textarea></div></div><label class="consent"><input type="checkbox" required> <span>Autorizo a Ordena Digital a utilizar estos datos únicamente para responder mi solicitud y gestionar el acceso solicitado.</span></label><button class="button" type="submit">Enviar solicitud</button></form><p class="notice" style="color:#afc4d1">No envíes documentos ni contraseñas por este formulario. La habilitación se realiza luego de validar tus datos.</p></div></section>
+  </main>
+  <footer><div class="container footer-inner"><div><div class="footer-brand">ORDENA DIGITAL</div><div class="notice">Digitalización y organización documental en Tucumán.</div></div><div>© <span id="year"></span> Ordena Digital</div></div></footer>
+  <script>
+    // Reemplazá el número por tu WhatsApp Business: código de país + número, sin +, espacios ni guiones.
+    const whatsappNumber = "5493813326626";
+    const whatsappMessage = "Hola, quiero consultar por el servicio de digitalización de documentos de Ordena Digital.";
+    const registrationEndpoint = 'https://script.google.com/macros/s/AKfycbxZfrpG-ETznOYH7OmLHq6DVJ8NEG0UBxUgrXN6jv2DvYhtAaCPcQwnENwmodg7Lvag/exec';
+    document.addEventListener('submit', async event => {
+      if (event.target.id !== 'client-registration') return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const form = event.target;
+      const button = form.querySelector('button[type="submit"]');
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+      try {
+        await fetch(registrationEndpoint, { method: 'POST', mode: 'no-cors', body: new FormData(form) });
+        form.reset();
+        alert('¡Solicitud enviada! Te contactaremos para validar el acceso.');
+      } catch {
+        alert('No pudimos enviar tu solicitud. Probá de nuevo o escribinos por WhatsApp.');
+      } finally {
+        button.disabled = false;
+        button.innerHTML = 'Enviar solicitud';
+      }
+    }, true);
+    document.querySelectorAll('.js-whatsapp').forEach(link => { link.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`; link.target = '_blank'; link.rel = 'noopener'; });
+    document.getElementById('client-registration').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const request = [
+        'Hola, quiero registrar una solicitud desde la web de Ordena Digital.',
+        '',
+        `Nombre: ${data.get('fullName')}`,
+        `Empresa: ${data.get('business')}`,
+        `Email: ${data.get('email')}`,
+        `Teléfono: ${data.get('phone')}`,
+        `Solicitud: ${data.get('requestType')}`,
+        `Consulta: ${data.get('message') || 'Sin comentario adicional.'}`
+      ].join('\n');
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(request)}`, '_blank', 'noopener');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
