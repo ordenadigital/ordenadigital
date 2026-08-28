@@ -97,6 +97,24 @@
     .plan .button { width:100%; }
     .plans-footnote { max-width:890px; margin:22px auto 0; color:#647383; text-align:center; font-size:.81rem; }
     .plans .section-head h2 { color:#fff; }.plans .section-head p { color:#d8e4e5; }.plans .eyebrow { color:#f2cf95; }.plans-footnote { position:relative; color:#d9e3e6; }
+    .file-game { position:relative; overflow:hidden; background:linear-gradient(135deg,#eef5ed,#fff8ed); }
+    .file-game:before { content:""; position:absolute; left:-70px; top:30px; width:230px; height:230px; border:34px solid rgba(147,168,148,.23); border-radius:48px; transform:rotate(20deg); }
+    .game-wrap { position:relative; display:grid; grid-template-columns:.86fr 1.14fr; align-items:center; gap:54px; }
+    .game-copy p { max-width:480px; color:#5d6f7a; font-size:1.04rem; }
+    .game-copy .small-note { margin:18px 0 0; color:#718292; font-size:.83rem; }
+    .game-shell { max-width:480px; margin-left:auto; padding:20px; border:1px solid #d5e1d7; border-radius:24px; background:#fff; box-shadow:0 20px 44px rgba(13,41,71,.1); }
+    .game-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; color:var(--navy); }
+    .game-top strong { font-size:.9rem; }.game-stats { display:flex; gap:6px; }.game-score,.game-timer { padding:6px 10px; border-radius:99px; background:var(--mint); color:#46614c; font-size:.78rem; font-weight:800; }.game-timer { background:#fff0dc; color:#9a5b18; }
+    .file-game-grid { display:grid; grid-template-columns:repeat(8,1fr); gap:5px; width:min(100%,390px); aspect-ratio:1; margin:auto; padding:9px; border-radius:19px; background:#173b59; outline:none; box-shadow:inset 0 0 0 1px rgba(255,255,255,.14); }
+    .file-game-grid:focus-visible { box-shadow:0 0 0 4px rgba(230,164,75,.5),inset 0 0 0 1px rgba(255,255,255,.14); }
+    .game-cell { display:grid; place-items:center; min-width:0; border-radius:7px; background:#295372; transition:transform .14s ease,background .14s ease; }
+    .game-cell.player { background:#f0c77f; transform:scale(1.08); box-shadow:0 4px 10px rgba(0,0,0,.2); }.game-cell.player:after { content:"▰"; color:#163653; font-size:clamp(.72rem,2vw,1.15rem); }
+    .game-cell.file { background:#93a894; animation:document-pop 1.3s ease-in-out infinite; }.game-cell.file:after { content:"▤"; color:#fff; font-size:clamp(.7rem,1.8vw,1rem); }
+    .game-cell.obstacle { background:#d97862; }.game-cell.obstacle:after { content:"×"; color:#fff6ef; font-size:clamp(.9rem,2vw,1.25rem); font-weight:900; }
+    @keyframes document-pop { 0%,100% { transform:scale(1); } 50% { transform:scale(1.14) rotate(4deg); } }
+    .game-controls { display:grid; grid-template-columns:repeat(3,42px); gap:5px; justify-content:center; margin:17px auto 0; }
+    .game-control { display:grid; place-items:center; width:42px; height:37px; border:1px solid #c6d5c9; border-radius:10px; background:#f7faf7; color:var(--navy); cursor:pointer; font-size:1rem; font-weight:800; transition:transform .18s ease,background .18s ease; }.game-control:hover { transform:translateY(-2px); background:var(--mint); }.game-control.up { grid-column:2; }.game-control.left { grid-column:1; grid-row:2; }.game-control.down { grid-column:2; grid-row:2; }.game-control.right { grid-column:3; grid-row:2; }
+    .game-status { min-height:21px; margin:14px 0 0; color:#607182; text-align:center; font-size:.8rem; font-weight:650; }.game-reset { display:block; margin:9px auto 0; border:0; background:transparent; color:#55775a; font:inherit; font-size:.78rem; font-weight:800; cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
     .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1); }
     .reveal.visible { opacity:1; transform:none; }
     @keyframes pulse-blob { 0%,100% { transform:scale(1) translate(0,0); } 50% { transform:scale(1.12) translate(12px,-9px); } }
@@ -166,7 +184,7 @@
     .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:18px; font-size:.83rem; }
     .footer-brand { color:white; font-weight:800; letter-spacing:.05em; }
     .notice { margin-top:11px; color:#8799a7; font-size:.73rem; }
-    @media (max-width:800px) { .nav-links { display:none; } .hero { padding:58px 0; } .hero,#servicios,.plans { background-attachment:scroll; } .hero-grid,.audience,.cloud-grid { grid-template-columns:1fr; gap:42px; } .hero-visual { margin-top:8px; } .orbit-note.one { left:-8px; } .orbit-note.two { right:-8px; } .cards,.plan-grid { grid-template-columns:1fr; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(2):after { display:none; } .strip .container { display:block; } .strip span { display:block; margin-top:3px; } .security-grid { grid-template-columns:1fr; } section { padding:68px 0; } }
+    @media (max-width:800px) { .nav-links { display:none; } .hero { padding:58px 0; } .hero,#servicios,.plans { background-attachment:scroll; } .hero-grid,.audience,.cloud-grid,.game-wrap { grid-template-columns:1fr; gap:42px; } .game-shell { margin:0 auto; width:min(100%,480px); } .hero-visual { margin-top:8px; } .orbit-note.one { left:-8px; } .orbit-note.two { right:-8px; } .cards,.plan-grid { grid-template-columns:1fr; } .steps { grid-template-columns:repeat(2,1fr); } .step:nth-child(2):after { display:none; } .strip .container { display:block; } .strip span { display:block; margin-top:3px; } .security-grid { grid-template-columns:1fr; } section { padding:68px 0; } }
     @media (max-width:450px) { .container { width:min(100% - 30px,1120px); } h1 { font-size:2.45rem; } .steps { grid-template-columns:1fr; } .step:after { display:none; } .footer-inner { align-items:flex-start; flex-direction:column; } .button { width:100%; } .hero-actions { display:grid; } .form-grid { grid-template-columns:1fr; } .plan { padding:26px 20px; } .orbit-note { font-size:.68rem; padding:8px 9px; } .orbit-note.two { bottom:34px; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; } }
   </style>
@@ -202,13 +220,132 @@
     <section id="servicios"><div class="container"><div class="section-head"><span class="eyebrow">Una solución práctica</span><h2>Ordená hoy. Encontrá todo mañana.</h2><p>Un servicio pensado para pymes, comercios y profesionales que necesitan recuperar el control de sus documentos.</p></div><div class="cards"><article class="card"><div class="icon">▣</div><h3>Digitalización</h3><p>Digitalizo tus documentos en alta calidad para convertir tus papeles en archivos PDF claros y accesibles.</p></article><article class="card"><div class="icon">⌘</div><h3>Organización</h3><p>Clasifico y nombro cada archivo con una estructura lógica, adaptada a la forma en que trabajás.</p></article><article class="card"><div class="icon">↗</div><h3>Entrega digital</h3><p>Recibís tus documentos en carpetas ordenadas, listos para buscar, consultar y compartir de forma controlada.</p></article></div></div></section>
     <section id="proceso" class="process"><div class="container"><div class="section-head"><span class="eyebrow">Simple y acompañado</span><h2>Así pongo en orden tus documentos</h2></div><div class="steps"><div class="step"><div class="step-num">1</div><h3>Me contactás</h3><p>Contame qué documentación tenés y qué necesitás resolver.</p></div><div class="step"><div class="step-num">2</div><h3>Coordinamos</h3><p>Defino el retiro o la entrega de los archivos y te envío un presupuesto.</p></div><div class="step"><div class="step-num">3</div><h3>Digitalizo</h3><p>Escaneo, clasifico y nombro todo con criterio.</p></div><div class="step"><div class="step-num">4</div><h3>Te entrego</h3><p>Recibís tu archivo digital organizado y los originales de vuelta.</p></div></div></div></section>
     <section id="archivo-privado" class="cloud-access"><div class="container cloud-grid"><div class="cloud-copy"><span class="eyebrow">Tu espacio privado</span><h2>Tus documentos, ordenados y disponibles cuando los necesitás.</h2><p>Cuando la digitalización esté lista, vas a recibir acceso a una carpeta privada donde estará reunida tu información. Puede ser documentación personal, de tu trabajo o de tu negocio: el espacio se organiza de acuerdo con lo que necesites guardar.</p><div class="cloud-points"><div class="cloud-point"><i>↗</i><div><strong>Acceso por invitación</strong><span>Te envío una invitación a tu correo. Solo vos y las personas que autorices podrán ingresar.</span></div></div><div class="cloud-point"><i>⌕</i><div><strong>Todo claro, sin vueltas</strong><span>Las carpetas y archivos se nombran de forma simple para que encuentres lo que buscás sin perder tiempo.</span></div></div><div class="cloud-point"><i>✓</i><div><strong>Vos decidís con quién compartir</strong><span>Podés elegir quiénes tendrán acceso y pedir cambios cuando lo necesites.</span></div></div></div></div><aside class="cloud-window" aria-label="Ejemplo de un archivo privado"><div class="cloud-folder">Mi archivo privado</div><div class="cloud-file"><span>▤ &nbsp; Facturas y comprobantes</span><small>Carpeta</small></div><div class="cloud-file"><span>▤ &nbsp; Contratos y trámites</span><small>Carpeta</small></div><div class="cloud-file"><span>▤ &nbsp; Impuestos</span><small>Carpeta</small></div><div class="cloud-file"><span>▤ &nbsp; Documentos importantes</span><small>Carpeta</small></div><p>El contenido y la forma de organizarlo se adaptan a vos.</p></aside></div></section>
-    <section id="planes" class="plans"><div class="container"><div class="section-head"><span class="eyebrow">Planes de almacenamiento</span><h2>Tu archivo digital, siempre disponible.</h2><p>Elegí el espacio y el nivel de acceso que necesitás. Podés guardar documentos que ya tengas digitalizados; la digitalización física es un servicio opcional.</p></div><div class="plan-grid"><article class="plan"><h3>Plan mensual</h3><p class="plan-desc">Para resguardar y consultar tus documentos digitales con tranquilidad.</p><div class="price"><strong>$60.000</strong><span>/ mes</span></div><p class="price-note">Cobro mensual automático</p><ul><li>Hasta 5 GB de almacenamiento privado</li><li>Hasta 2 usuarios autorizados</li><li>Carpeta segura con acceso controlado</li><li>Organización básica y soporte mensual</li><li>Documentos digitales propios o nuevos</li></ul><a class="button primary js-payment" data-plan="mensual" href="#">Suscribirme mensualmente</a></article><article class="plan featured"><span class="plan-badge">Mejor valor</span><h3>Plan anual preferencial</h3><p class="plan-desc">Más espacio, soporte prioritario y ahorro por pago anticipado.</p><div class="price"><strong>$612.000</strong><span>/ año</span></div><p class="price-note">Ahorrás $108.000 al año</p><p class="price-equivalent">Equivale a $51.000 por mes</p><ul><li>Hasta 15 GB de carga</li><li>Hasta 3 usuarios autorizados</li><li>Soporte y coordinación prioritarios</li><li>Revisión trimestral de la organización</li></ul><a class="button primary js-payment" data-plan="anual" href="#">Elegir plan anual</a></article></div><p class="plans-footnote">El pago se procesa exclusivamente en Mercado Pago. No ingreses datos de tarjetas ni contraseñas en esta web. Si necesitás más capacidad, puedo ampliar el espacio de tu archivo digital.</p></div></section>
+    <section id="planes" class="plans"><div class="container"><div class="section-head"><span class="eyebrow">Planes de almacenamiento</span><h2>Tu archivo digital, siempre disponible.</h2><p>Elegí el espacio y el nivel de acceso que necesitás. Podés guardar documentos que ya tengas digitalizados; la digitalización física es un servicio opcional.</p></div><div class="plan-grid"><article class="plan"><h3>Plan mensual</h3><p class="plan-desc">Para resguardar y consultar tus documentos digitales con tranquilidad.</p><div class="price"><strong>$60.000</strong><span>/ mes</span></div><p class="price-note">Cobro mensual automático</p><ul><li>Hasta 5 GB de almacenamiento privado</li><li>Hasta 2 usuarios autorizados</li><li>Carpeta segura con acceso controlado</li><li>Organización básica y soporte mensual</li><li>Documentos digitales propios o nuevos</li></ul><a class="button primary js-payment" data-plan="mensual" href="#">Suscribirme mensualmente</a></article><article class="plan featured"><span class="plan-badge">Mejor valor</span><h3>Plan anual preferencial</h3><p class="plan-desc">Más espacio, soporte prioritario y ahorro por pago anticipado.</p><div class="price"><strong>$612.000</strong><span>/ año</span></div><p class="price-note">Ahorrás $108.000 al año</p><p class="price-equivalent">Equivale a $51.000 por mes</p><ul><li>Hasta 15 GB de carga nueva por mes</li><li>Hasta 180 GB acumulados durante el año</li><li>Hasta 3 usuarios autorizados</li><li>Soporte y coordinación prioritarios</li><li>Revisión trimestral de la organización</li></ul><a class="button primary js-payment" data-plan="anual" href="#">Elegir plan anual</a></article></div><p class="plans-footnote">El pago se procesa exclusivamente en Mercado Pago. No ingreses datos de tarjetas ni contraseñas en esta web. Si necesitás más capacidad, puedo ampliar el espacio de tu archivo digital.</p></div></section>
+    <section class="file-game" aria-labelledby="game-title"><div class="container game-wrap"><div class="game-copy"><span class="eyebrow">Un recreo rápido</span><h2 id="game-title">Ordená los archivos.</h2><p>Tenés 30 segundos para guardar la mayor cantidad de documentos. Cada archivo suma un punto y te devuelve un segundo; evitá los papeles desordenados o perderás tiempo.</p><p class="small-note">Hacé clic en el tablero y usá las flechas del teclado. También podés usar las crucetas de abajo.</p></div><div class="game-shell"><div class="game-top"><strong>Reto express</strong><div class="game-stats"><span id="game-timer" class="game-timer" aria-live="polite">30 s</span><span id="game-score" class="game-score" aria-live="polite">Archivos: 0</span></div></div><div id="file-game-grid" class="file-game-grid" role="application" aria-label="Juego Ordená los archivos. Usá las flechas para mover la carpeta y recoger documentos. Evitá los papeles desordenados." tabindex="0"></div><div class="game-controls" aria-label="Controles del juego"><button class="game-control up" type="button" data-direction="up" aria-label="Mover arriba">↑</button><button class="game-control left" type="button" data-direction="left" aria-label="Mover izquierda">←</button><button class="game-control down" type="button" data-direction="down" aria-label="Mover abajo">↓</button><button class="game-control right" type="button" data-direction="right" aria-label="Mover derecha">→</button></div><p id="game-status" class="game-status" aria-live="polite">Presioná una flecha para comenzar.</p><button id="game-reset" class="game-reset" type="button">Reiniciar reto</button></div></div></section>
     <section class="document-types"><div class="container audience"><div><span class="eyebrow">Para trabajar mejor</span><h2>Tu información, donde la necesitás.</h2><p class="hero-text">Dejá de perder tiempo buscando en cajas, archivadores o pilas de papeles. Llevo orden a la documentación que necesitás tener a mano.</p><a class="button primary js-whatsapp" href="#">Quiero organizar mis archivos</a></div><ul class="check-list"><li>Facturas, recibos y comprobantes</li><li>Documentación de proveedores</li><li>Contratos y presupuestos</li><li>Remitos y archivos administrativos</li><li>Carpetas históricas de tu negocio</li></ul></div></section>
     <section id="seguridad"><div class="container security"><span class="eyebrow">Compromiso con tu información</span><h2>Tu documentación se trata con cuidado.</h2><p>Trabajo con retiro y entrega coordinados, organización por cliente y accesos controlados. Antes de comenzar, defino el alcance y el plazo de conservación de las copias de trabajo.</p><div class="security-grid"><div><b>Confidencialidad</b>Tu información se utiliza solo para el servicio acordado.</div><div><b>Acceso controlado</b>Las entregas digitales se preparan para el cliente autorizado.</div><div><b>Proceso claro</b>Sabés qué entregás, qué recibís y cuándo.</div></div></div></section>
     <section id="clientes" class="cta"><div class="container"><span class="eyebrow">Área de clientes</span><h2>Solicitá acceso a tu archivo digital.</h2><p>Completá tus datos. Verificaré la solicitud antes de habilitar el acceso privado a tu carpeta.</p><form id="client-registration" class="client-form"><div class="form-grid"><div class="field"><label for="fullName">Nombre y apellido *</label><input id="fullName" name="fullName" autocomplete="name" required></div><div class="field"><label for="business">Empresa o emprendimiento *</label><input id="business" name="business" autocomplete="organization" required></div><div class="field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="phone">Teléfono / WhatsApp *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="requestType">¿Qué necesitás?</label><select id="requestType" name="requestType"><option value="Solicitar acceso a mi archivo digital">Ya soy cliente y solicito acceso</option><option value="Consultar por digitalización de documentos">Quiero digitalizar documentos</option></select></div><div class="field full"><label for="message">Contame brevemente tu consulta</label><textarea id="message" name="message" placeholder="Ej.: Necesito acceder a mi documentación."></textarea></div></div><label class="consent"><input type="checkbox" required> <span>Autorizo a Ordena Digital a utilizar estos datos únicamente para responder mi solicitud y gestionar el acceso solicitado.</span></label><button class="button" type="submit">Enviar solicitud</button></form><p class="notice" style="color:#afc4d1">No envíes documentos ni contraseñas por este formulario. La habilitación se realiza luego de validar tus datos.</p></div></section>
   </main>
   <footer><div class="container footer-inner"><div><div class="footer-brand">ORDENA DIGITAL</div><div class="notice">Digitalización y organización documental en Tucumán.</div></div><div>© <span id="year"></span> Ordena Digital</div></div></footer>
   <script>
+    const gameGrid = document.getElementById('file-game-grid');
+    const gameScore = document.getElementById('game-score');
+    const gameTimer = document.getElementById('game-timer');
+    const gameStatus = document.getElementById('game-status');
+    const gameReset = document.getElementById('game-reset');
+    const gameSize = 8;
+    const gameDuration = 30;
+    const gameCells = [];
+    let player = { x:3, y:4 };
+    let documentFile = { x:6, y:2 };
+    let obstacles = [];
+    let filesCollected = 0;
+    let timeLeft = gameDuration;
+    let gameRunning = false;
+    let gameInterval;
+    for (let index = 0; index < gameSize * gameSize; index++) {
+      const cell = document.createElement('span');
+      cell.className = 'game-cell';
+      cell.setAttribute('aria-hidden', 'true');
+      gameGrid.appendChild(cell);
+      gameCells.push(cell);
+    }
+    const sameSpot = (first, second) => first.x === second.x && first.y === second.y;
+    const placeDocument = () => {
+      do {
+        documentFile = { x:Math.floor(Math.random() * gameSize), y:Math.floor(Math.random() * gameSize) };
+      } while (sameSpot(documentFile, player) || obstacles.some(obstacle => sameSpot(documentFile, obstacle)));
+    };
+    const placeObstacles = () => {
+      const amount = Math.min(6, 2 + Math.floor(filesCollected / 3));
+      obstacles = [];
+      while (obstacles.length < amount) {
+        const obstacle = { x:Math.floor(Math.random() * gameSize), y:Math.floor(Math.random() * gameSize) };
+        if (!sameSpot(obstacle, player) && !sameSpot(obstacle, documentFile) && !obstacles.some(item => sameSpot(item, obstacle))) obstacles.push(obstacle);
+      }
+    };
+    const renderGame = () => {
+      gameCells.forEach(cell => { cell.className = 'game-cell'; });
+      obstacles.forEach(obstacle => gameCells[obstacle.y * gameSize + obstacle.x].classList.add('obstacle'));
+      gameCells[player.y * gameSize + player.x].classList.add('player');
+      gameCells[documentFile.y * gameSize + documentFile.x].classList.add('file');
+      gameScore.textContent = `Archivos: ${filesCollected}`;
+      gameTimer.textContent = `${timeLeft} s`;
+    };
+    const endGame = () => {
+      gameRunning = false;
+      clearInterval(gameInterval);
+      gameStatus.textContent = `¡Tiempo! Guardaste ${filesCollected} ${filesCollected === 1 ? 'archivo' : 'archivos'}.`;
+    };
+    const startGame = () => {
+      if (gameRunning || timeLeft <= 0) return;
+      gameRunning = true;
+      gameStatus.textContent = '¡Rápido! Cada documento te devuelve 1 segundo.';
+      gameInterval = setInterval(() => {
+        timeLeft -= 1;
+        if (timeLeft <= 0) {
+          timeLeft = 0;
+          renderGame();
+          endGame();
+          return;
+        }
+        renderGame();
+      }, 1000);
+    };
+    const resetGame = () => {
+      clearInterval(gameInterval);
+      player = { x:3, y:4 };
+      filesCollected = 0;
+      timeLeft = gameDuration;
+      gameRunning = false;
+      obstacles = [];
+      placeDocument();
+      placeObstacles();
+      gameStatus.textContent = 'Presioná una flecha para comenzar.';
+      renderGame();
+    };
+    const moveFolder = direction => {
+      const moves = { up:[0,-1], down:[0,1], left:[-1,0], right:[1,0] };
+      if (timeLeft <= 0) {
+        gameStatus.textContent = 'El reto terminó. Tocá “Reiniciar reto” para jugar otra vez.';
+        return;
+      }
+      startGame();
+      const [moveX, moveY] = moves[direction] || [0,0];
+      player.x = Math.max(0, Math.min(gameSize - 1, player.x + moveX));
+      player.y = Math.max(0, Math.min(gameSize - 1, player.y + moveY));
+      if (player.x === documentFile.x && player.y === documentFile.y) {
+        filesCollected += 1;
+        timeLeft = Math.min(gameDuration + 5, timeLeft + 1);
+        placeDocument();
+        placeObstacles();
+        gameStatus.textContent = '¡Archivo guardado! +1 segundo.';
+      } else if (obstacles.some(obstacle => sameSpot(player, obstacle))) {
+        timeLeft = Math.max(0, timeLeft - 3);
+        placeObstacles();
+        gameStatus.textContent = '¡Papel desordenado! -3 segundos.';
+        if (timeLeft === 0) {
+          renderGame();
+          endGame();
+          return;
+        }
+      }
+      renderGame();
+    };
+    gameGrid.addEventListener('keydown', event => {
+      const directions = { ArrowUp:'up', ArrowDown:'down', ArrowLeft:'left', ArrowRight:'right' };
+      if (!directions[event.key]) return;
+      event.preventDefault();
+      moveFolder(directions[event.key]);
+    });
+    document.querySelectorAll('.game-control').forEach(button => {
+      button.addEventListener('click', () => {
+        gameGrid.focus();
+        moveFolder(button.dataset.direction);
+      });
+    });
+    gameReset.addEventListener('click', resetGame);
+    resetGame();
     // Reemplazá el número por tu WhatsApp Business: código de país + número, sin +, espacios ni guiones.
     const whatsappNumber = "5493813326626";
     const whatsappMessage = "Hola, quiero consultar por el servicio de digitalización de documentos de Ordena Digital.";
